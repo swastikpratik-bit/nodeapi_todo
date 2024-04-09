@@ -18,6 +18,13 @@ config({
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    credentials: true
+
+}))
+// using Routes --> 
 app.use("/users",userRouter);
 app.use("/tasks",taskRouter);
 
